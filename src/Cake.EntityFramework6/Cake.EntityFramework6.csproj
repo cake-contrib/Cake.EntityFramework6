@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Cake.EntityFramework6</AssemblyName>
+    <RootNamespace>Cake.EntityFramework6</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Title>Cake.EntityFramework6</Title>
+    <Version>0.1.0</Version>
+    <Description>Cake.EntityFramework6 is a set of Cake aliases for Entity Framework 6.3 or above (not .NET Core) code-first migration using the ef6.exe command line interface (cli).</Description>
+    <Authors>louisfischer, Cake-Contrib</Authors>
+    <Company>Cake-Contrib</Company>
+    <Copyright>Copyright © 2019 Cake Contributions Organization</Copyright>
+    <PackageTags>Cake EntityFramework ef code-first migrations sql-server</PackageTags>
+    <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics@a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</PackageIconUrl>
+    <PackageProjectUrl>http://cake-contrib.github.io/Cake.EntityFramework6/</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/cake-contrib/Cake.EntityFramework6.git</RepositoryUrl>
+    <PackageReleaseNotes>https://github.com/cake-contrib/Cake.EntityFramework6/releases/tag/0.1.0</PackageReleaseNotes>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);PackBuildOutputs</TargetsForTfmSpecificContentInPackage>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\Cake.EntityFramework6.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\Cake.EntityFramework6.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
+  </ItemGroup>
+  <Target Name="PackBuildOutputs" DependsOnTargets="SatelliteDllsProjectOutputGroup;DebugSymbolsProjectOutputGroup">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(OutputPath)\**\Cake.EntityFramework6.*">
+        <PackagePath>lib\$(TargetFramework)\</PackagePath>
+      </TfmSpecificPackageFile>
+    </ItemGroup>
+  </Target>
+</Project>
+
